@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: stg_marketing
+    description: "Staging model for marketing campaigns with channel and cost details."
+    columns:
+      - name: manager
+        description: "Campaign manager's name."
+      - name: channel
+        description: "The platform used for the campaign."
+        tests:
+          - not_null
+      - name: discount_code
+        description: "Discount code used in the campaign."
+        tests:
+          - not_null
+      - name: cost
+        description: "Marketing campaign cost."
+        tests:
+          - not_null
