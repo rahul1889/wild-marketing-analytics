@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: stg_orders
+    description: "Staging model for order data with calculated net revenue and new customer status."
+    columns:
+      - name: order_id
+        description: "Unique identifier for each order."
+        tests:
+          - unique
+          - not_null
+      - name: order_date
+        description: "Date of the order."
+        tests:
+          - not_null
+      - name: discount_code
+        description: "Discount code applied to the order."
+      - name: order_revenue
+        description: "Original revenue for the order before discount."
+      - name: net_revenue
+        description: "Revenue after discount is applied."
+      - name: new_customer
+        description: "Indicates if the order was placed by a new customer."
+        tests:
+          - accepted_values:
+              values: [0, 1]
