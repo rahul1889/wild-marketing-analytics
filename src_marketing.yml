@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: src_marketing
+    description: "Source model for marketing campaigns from Google Sheets with details on costs and discount codes."
+    columns:
+      - name: manager
+        description: "Manager responsible for the marketing campaign."
+      - name: channel
+        description: "Marketing channel (e.g., Instagram, Podcast)."
+        tests:
+          - not_null
+      - name: discount_code
+        description: "Discount code associated with the marketing campaign."
+        tests:
+          - not_null
+      - name: cost
+        description: "Cost of the marketing campaign."
+        tests:
+          - not_null
