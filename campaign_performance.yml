@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: campaign_performance
+    description: "Final model providing aggregated campaign performance data, including ranking for the most successful campaigns."
+    columns:
+      - name: manager
+        description: "Manager responsible for the campaign."
+        tests:
+          - not_null
+      - name: channel
+        description: "Marketing channel used in the campaign."
+      - name: discount_code
+        description: "Campaign discount code."
+      - name: total_revenue
+        description: "Total revenue generated for each discount code."
+        tests:
+          - not_null
+      - name: revenue_rank
+        description: "Ranking of campaigns based on total revenue generated."
