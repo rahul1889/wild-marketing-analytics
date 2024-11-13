@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: wild_cosmetics
+    database: SHARE_WILD_COSMETICS
+    schema: OUTPUT
+    tables:
+      - name: ALL_INFLUENCER_RESULTS
+      - name: FINAL_ORDERS
