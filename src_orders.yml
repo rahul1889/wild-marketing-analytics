@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: src_orders
+    description: "Source model for order data from Shopify, including order details and revenue."
+    columns:
+      - name: order_id
+        description: "Unique identifier for each order."
+        tests:
+          - unique
+          - not_null
+      - name: order_date
+        description: "Date when the order was placed."
+        tests:
+          - not_null
+      - name: discount_code
+        description: "Discount code used in the order."
+      - name: order_revenue
+        description: "Total revenue for the order."
+      - name: net_revenue
+        description: "Order revenue after discount is applied."
+      - name: new_customer
+        description: "Indicates if the order is from a new customer (1) or a returning customer (0)."
+        tests:
+          - not_null
+          - accepted_values:
+              values: [0, 1]
