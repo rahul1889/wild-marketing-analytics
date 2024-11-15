@@ -11,6 +11,7 @@ Identifies whether the order is from a new customer based on the Customer Order 
 Key Output:
 
 Total order revenue per discount code and customer data (new customer flag).
+
 2. stg_marketing (Staging Model for Marketing Data)
 This model processes the raw marketing campaign data. It filters campaigns based on the active date range for the current quarter and considers the live_date and end_date of each campaign.
 
@@ -18,6 +19,7 @@ Key Output:
 
 Campaign details: manager, channel, discount_code, cost.
 Only includes campaigns that are active in the current quarter.
+
 3. int_campaign_performance (Campaign Performance Metrics)
 Aggregates data from the stg_orders and stg_marketing models to calculate key campaign performance metrics:
 
@@ -26,6 +28,7 @@ Calculates the Customer Acquisition Cost (CAC) by dividing the total cost of mar
 Key Output:
 
 Campaign performance: revenue and CAC for each marketing campaign.
+
 4. int_channel_performance (Channel Performance Metrics)
 Aggregates and calculates the performance of different marketing channels by summarizing:
 
@@ -37,11 +40,13 @@ Key Output:
 
 Channel-specific performance metrics.
 Overall channel CAC calculation.
+
 5. manager_top_campaign (Top Campaign per Manager)
 This model ranks campaigns by total_revenue within each marketing channel and identifies the most successful campaign for each manager.
 
 Uses ROW_NUMBER() to rank campaigns based on total revenue within each channel.
 Filters to keep only the top campaign (highest revenue) for each manager.
+
 Key Output:
 
 The most successful campaign by revenue for each manager.
